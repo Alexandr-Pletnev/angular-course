@@ -10,6 +10,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SharedModule} from "../shared/shared.module";
 import {AuthService} from "./shared/services/auth.service";
 import {AuthGuardService} from "./shared/services/auth-guard.service";
+import {SearchPipe} from "./shared/search.pipe";
 
 
 
@@ -19,7 +20,8 @@ import {AuthGuardService} from "./shared/services/auth-guard.service";
     LoginPageComponent,
     DashboardPageComponent,
     CreatePageComponent,
-    EditPageComponent
+    EditPageComponent,
+    SearchPipe
   ],
   imports: [
     CommonModule,
@@ -38,7 +40,6 @@ import {AuthGuardService} from "./shared/services/auth-guard.service";
     ])
   ],
   providers: [
-    AuthService,
     AuthGuardService
   ]
 })

@@ -27,6 +27,10 @@ export class LoginPageComponent implements OnInit {
       if(params['loginAgain']){
         this.message = 'Пожалуйста сначала авторизуйтесь'
       }
+
+      if(params['authFailed']){
+        this.message = '401: Unauthorised'
+      }
     })
 
     this.form = new FormGroup({

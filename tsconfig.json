@@ -23,7 +23,10 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    // see: https://github.com/quilljs/delta/issues/33
+    "allowSyntheticDefaultImports" : true,
+    "esModuleInterop": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
