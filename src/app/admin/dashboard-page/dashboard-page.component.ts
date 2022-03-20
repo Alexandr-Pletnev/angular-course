@@ -2,6 +2,11 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {PostService} from "../../shared/post.service";
 import {Post} from "../../shared/interfaces";
 import {Subscription} from "rxjs";
+import {AlertService} from "../shared/services/alert.service";
+import {registerLocaleData} from "@angular/common";
+import ruLocal from "@angular/common/locales/ru";
+
+registerLocaleData(ruLocal, 'ru');
 
 @Component({
   selector: 'app-dashboard-page',
@@ -17,6 +22,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
 
   constructor(
     private postService: PostService,
+    private alert: AlertService,
   ) {
   }
 
@@ -41,6 +47,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
   postDelete(id: string) {
     this.subDelete = this.subscription = this.postService.delete(id).subscribe(() => {
       this.posts = this.posts.filter(post => post.id != id);
+      this.alert.danger('Пост был удален');
     });
   }
 }
