@@ -24,9 +24,9 @@ export class AuthInterceptor implements HttpInterceptor{
 
     return next.handle(req)
       .pipe(
-        tap((resp) => console.log('Interceptor: ', resp)),
+        // tap((resp) => console.log('Interceptor: ', resp)),
         catchError((err: HttpErrorResponse) => {
-          console.log('Interceptor error: ', err);
+          // console.log('Interceptor error: ', err);
           if(err.status === 401) {
             this.auth.logout();
             this.router.navigate(['/admin', 'login'], {
@@ -36,7 +36,7 @@ export class AuthInterceptor implements HttpInterceptor{
             })
           }
           return throwError(() => err);
-        })
+        }),
       );
   }
 
