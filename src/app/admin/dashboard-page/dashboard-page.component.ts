@@ -3,10 +3,7 @@ import {PostService} from "../../shared/post.service";
 import {Post} from "../../shared/interfaces";
 import {Subscription} from "rxjs";
 import {AlertService} from "../shared/services/alert.service";
-import {registerLocaleData} from "@angular/common";
-import ruLocal from "@angular/common/locales/ru";
 
-registerLocaleData(ruLocal, 'ru');
 
 @Component({
   selector: 'app-dashboard-page',
